@@ -1,0 +1,22 @@
+<p>accounts works!</p>
+<br>
+<input type="text" maxlength="15" [(ngModel)]="lstrUser">
+<button type="button" (click)="fnGetAccounts()">Get Accounts</button>
+<table class="accounts-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Usuario</th>
+            <th>Número Cuenta</th>
+            <th>Nombre Cuenta</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let account of accounts">
+            <td>{{account.id}}</td>
+            <td>{{account.CodiUser}}</td>
+            <td>{{account.NumeCuen}}</td>
+            <td>{{account.NombCuen}}</td>
+        </tr>
+    </tbody>
+</table>

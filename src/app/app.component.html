@@ -1,0 +1,48 @@
+<h1>
+  {{title}}
+</h1>
+<br>
+
+<div *ngIf="this.service.gbolSignUp; then thenSignUp else elseSignUp"></div>
+<ng-template #thenSignUp>
+  <div>
+    <app-signup></app-signup>
+  </div>
+</ng-template>
+<ng-template #elseSignUp>
+  <div>
+    <div *ngIf="this.lbolUserLogu; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+      <div>
+        <button type="button" routerLink="/home">Home</button>
+        <button type="button" routerLink="/profile">Profile</button>
+        <button type="button" routerLink="/accounts">Accounts</button>
+        <button type="button" routerLink="/transactions">Transactions</button>
+        <button type="button" routerLink="/dashboard">Dashboard</button>
+        <button type="button" (click)="fnLogOUT()">Salir</button>
+      </div>
+      <router-outlet />
+    </ng-template>
+    <ng-template #elseBlock>
+      <div>
+        <div>
+          <label>User:</label>
+          <input type="text" maxlength="15" [(ngModel)]="lstrUser">
+        </div>
+        <div>
+          <label>Password:</label>
+          <input type="text" maxlength="15" [(ngModel)]="lstrPass">
+        </div>
+        <div>
+          <button type="button" (click)="fnLogIN()">login</button>
+        </div>
+        <div>
+          <br>
+          <label>{{lstrMessag}}</label>
+          <br><br>
+          <button type="button" (click)="fnSignUP()">Sign Up</button>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</ng-template>
