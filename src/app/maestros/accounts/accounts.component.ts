@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import { AppComponent } from '../../app.component';
+import { ServiceService } from '../../services/service.service';
 
 @Component({
   selector: 'app-accounts',
@@ -10,18 +10,19 @@ import { AppComponent } from '../../app.component';
 export class AccountsComponent implements OnInit {
   constructor(
     private dataService: DataService,
-    private appComponent: AppComponent
+    private service: ServiceService
   ) {}
 
   accounts: any[] = [];
-  lstrUser: string ='';
+  lstrUser: string = '';
 
   ngOnInit(): void {
     this.fnGetAccounts();
   }
 
   fnGetAccounts() {
-    this.dataService.fnGetAccounts(this.lstrUser).subscribe({
+    this.dataService.fnGetAccounts(this.lstrUser).subscribe({ // --> Se va siempre con ROBIN(LOGIN)
+    //this.dataService.fnGetAccounts(this.service.lstrUser).subscribe({ // --> Solo busca con el INPUT pero no con el del LOGIN(Robin)
       next: (res) => {
         this.accounts = res;
       },
