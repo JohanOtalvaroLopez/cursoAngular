@@ -16,8 +16,10 @@ export class DataService {
 
   fnValiUser(CodiUser: string, PassUser: string): Observable<any> {
     let UserInfo: any[] = [];
-    UserInfo.push({'CodiUser':CodiUser, 'PassUser': PassUser});
-    console.log('dataservices_fnValiUser[CodiUser ]'+ CodiUser +'[PassUser ]' + PassUser);
+    UserInfo.push({ CodiUser: CodiUser, PassUser: PassUser });
+    console.log(
+      'dataservices_fnValiUser[CodiUser ]' + CodiUser + '[PassUser ]' + PassUser
+    );
     return this.http
       .post(this.apiUrl + '/ValiUser', UserInfo, httpOptions)
       .pipe(
@@ -30,11 +32,26 @@ export class DataService {
 
   fnGetAccountsDataServices(CodiUser: string): Observable<any> {
     let User: any[] = [];
-    User.push({'CodiUser':CodiUser});
+    User.push({ CodiUser: CodiUser });
     console.log('dataservices_fnGetAccounts[CodiUser]', CodiUser);
     return this.http.post(this.apiUrl + '/GetAccounts', User, httpOptions).pipe(
       tap((res: any) => {
         console.log('dataservices_fnGetAccounts:', res);
+        return res;
+      })
+    );
+  }
+
+  fnSignUPDataServices(
+    CodiUser: string,
+    NombUser: string,
+    PassUser: string
+  ): Observable<any> {
+    let User: any[] = [];
+    User.push({ CodiUser: CodiUser, NombUser: NombUser, PassUser: PassUser });
+    return this.http.post(this.apiUrl + '/signup', User, httpOptions).pipe(
+      tap((res: any) => {
+        console.log('dataservices_fnSignUPDataServices:', res);
         return res;
       })
     );
