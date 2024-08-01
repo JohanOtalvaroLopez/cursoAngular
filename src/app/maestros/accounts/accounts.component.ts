@@ -17,12 +17,12 @@ export class AccountsComponent implements OnInit {
   lstrUser: string = '';
 
   ngOnInit(): void {
-    this.fnGetAccounts();
+    this.fnGetAccountsComponent();
   }
 
-  fnGetAccounts() {
-    this.dataService.fnGetAccounts(this.lstrUser).subscribe({ // --> Se va siempre con ROBIN(LOGIN)
-    //this.dataService.fnGetAccounts(this.service.lstrUser).subscribe({ // --> Solo busca con el INPUT pero no con el del LOGIN(Robin)
+  fnGetAccountsComponent() {
+    //this.dataService.fnGetAccountsDataServices(this.lstrUser).subscribe({ // --> Solo busca con el INPUT pero no con el del LOGIN(Robin)
+    this.dataService.fnGetAccountsDataServices(this.service.lstrUser).subscribe({ // --> Se va siempre con ROBIN(LOGIN)
       next: (res) => {
         this.accounts = res;
       },

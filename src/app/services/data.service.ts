@@ -28,7 +28,7 @@ export class DataService {
       );
   }
 
-  fnGetAccounts(CodiUser: string): Observable<any> {
+  fnGetAccountsDataServices(CodiUser: string): Observable<any> {
     let User: any[] = [];
     User.push({'CodiUser':CodiUser});
     console.log('dataservices_fnGetAccounts[CodiUser]', CodiUser);
