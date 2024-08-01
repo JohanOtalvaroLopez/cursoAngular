@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule,provideClientHydration} from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 
@@ -9,7 +12,7 @@ import { SignupModule } from './generales/signup/signup.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule,SignupModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, SignupModule],
   providers: [provideClientHydration(), provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
 })
