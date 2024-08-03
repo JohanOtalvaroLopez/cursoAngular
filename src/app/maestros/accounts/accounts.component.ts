@@ -14,15 +14,15 @@ export class AccountsComponent implements OnInit {
   ) {}
 
   accounts: any[] = [];
-  lstrUser: string = '';
+  txtUser: string = '';
 
   ngOnInit(): void {
-    this.lstrUser = this.service.lstrUser; 
+    this.txtUser = this.service.txtUser; 
     this.fnGetAccountsComponent();
   }
 
   fnGetAccountsComponent() {
-    this.dataService.fnGetAccountsDataServices(this.lstrUser).subscribe({ // --> Solo busca con el INPUT pero no con el del LOGIN(Robin)
+    this.dataService.fnGetAccountsDataServices(this.txtUser).subscribe({ // --> Solo busca con el INPUT pero no con el del LOGIN(Robin)
       next: (res) => {
         this.accounts = res;
       },

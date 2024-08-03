@@ -14,12 +14,12 @@
     <div *ngIf="this.lbolUserLogu; then thenBlock else elseBlock"></div>
     <ng-template #thenBlock>
       <div>
-        <button type="button" routerLink="/home">Home</button>
-        <button type="button" routerLink="/profile">Profile</button>
-        <button type="button" routerLink="/accounts">Accounts</button>
-        <button type="button" routerLink="/transactions">Transactions</button>
-        <button type="button" routerLink="/dashboard">Dashboard</button>
-        <button type="button" (click)="fnLogOUT()">Salir</button>
+        <button type="button" routerLink="/home" class="button">Home</button>
+        <button type="button" routerLink="/profile" class="button">Profile</button>
+        <button type="button" routerLink="/accounts" class="button">Accounts</button>
+        <button type="button" routerLink="/transactions" class="button">Transactions</button>
+        <button type="button" routerLink="/dashboard" class="button">Dashboard</button>
+        <button type="button" (click)="fnLogOUT()" class="button button-logout">Salir</button>
       </div>
       <router-outlet />
     </ng-template>
@@ -34,13 +34,13 @@
           <input type="password" maxlength="15" [(ngModel)]="lstrPass">
         </div>
         <div>
-          <button type="button" (click)="fnLogIN()">Login</button>
+          <button type="button" (click)="fnLogIN()" class="button">Login</button>
         </div>
         <div>
           <br>
           <label>{{lstrMessag}}</label>
           <br><br>
-          <button type="button" (click)="fnSignUP()">Sign Up</button>
+          <button type="button" (click)="fnSignUP()" class="button">Sign Up</button>
         </div>
       </div>
     </ng-template>

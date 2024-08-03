@@ -53,4 +53,17 @@ export class DataService {
       })
     );
   }
+
+  fnValiProfileDataServices(CodiUser: string): Observable<any> {
+    let UserInfo: any[] = [];
+    UserInfo.push({ CodiUser: CodiUser });
+    return this.http
+      .post(this.apiUrl + '/Valiprof', UserInfo, httpOptions)
+      .pipe(
+        tap((res: any) => {
+          console.log('dataservices_fnValiProfileDataServices:', res);
+          return res;
+        })
+      );
+  }
 }

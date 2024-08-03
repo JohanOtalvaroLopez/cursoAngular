@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'My App Bank - jfotalva';
+  title = 'MY APP BANK';
   lbolUserLogu: boolean = false;
   lstrUser: string = 'Robin';
   lstrPass: string = '1234';
@@ -23,7 +23,7 @@ export class AppComponent {
         if (res[0].Status == 'OK') {
           this.lbolUserLogu = true;
           this.lstrMessag = '';
-          this.service.lstrUser = this.lstrUser;
+          this.service.txtUser = this.lstrUser;
           this.router.navigate(['home']);
         } else {
           this.lbolUserLogu = false;
