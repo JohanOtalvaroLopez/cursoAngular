@@ -36,7 +36,7 @@ export class AppComponent {
 
   fnLogOUT() {
     this.lbolUserLogu = false;
-    window.alert('*** Gracias por utilizar nuetros servicios financieros ***');
+    //window.alert('*** Gracias por utilizar nuetros servicios financieros ***');
   }
 
   fnSignUP(){

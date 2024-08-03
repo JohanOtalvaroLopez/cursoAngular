@@ -1,43 +1,19 @@
-/* Estilo general para el contenedor del formulario */
-.signup-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra los elementos horizontalmente */
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px; /* Bordes redondeados */
-    background-color: #f9f9f9; /* Color de fondo gris claro */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    width: 300px; /* Ancho fijo para el contenedor del formulario */
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-}
-
-/* Estilo para los párrafos */
-.signup-container p {
-    font-size: 18px; /* Tamaño de la fuente */
+/* Estilo para el título */
+h1 {
+    font-size: 20px; /* Tamaño de la fuente */
     font-weight: bold; /* Negrita */
     color: #333; /* Color del texto */
-    margin-bottom: 20px; /* Espaciado inferior */
+    text-align: center; /* Centra el texto */
+    margin: 20px 0; /* Espaciado superior e inferior */
+    padding: 10px; /* Espaciado interno */
+    background-color: #f8f9fa; /* Color de fondo gris claro */
+    border: 1px solid #ddd; /* Borde del título */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
-/* Estilo para las etiquetas */
-.signup-container label {
-    font-size: 16px; /* Tamaño de la fuente */
-    margin-right: 10px; /* Espacio entre la etiqueta y el campo */
-}
-
-/* Estilo para los campos de entrada */
-.signup-container input[type="text"] {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px; /* Bordes redondeados en los campos */
-    font-size: 16px;
-    width: 100%; /* Ancho completo del contenedor */
-    margin-bottom: 15px; /* Espaciado inferior */
-}
-
-/* Estilo para los botones */
-.signup-container button {
+/* Estilo general para los botones */
+.button {
     background-color: #007bff; /* Color de fondo azul claro */
     border: none;
     color: white; /* Color del texto */
@@ -53,24 +29,71 @@
 }
 
 /* Estilo para el estado hover de los botones */
-.signup-container button:hover {
+.button:hover {
     background-color: #0056b3; /* Color de fondo al pasar el ratón */
     transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
 }
 
 /* Estilo para el estado activo de los botones */
-.signup-container button:active {
+.button:active {
     background-color: #004085; /* Color de fondo cuando se presiona el botón */
     transform: scale(0.95); /* Efecto de reducción al presionar el botón */
 }
 
+/* Estilo específico para el botón de salir */
+.button-logout {
+    background-color: #dc3545; /* Color de fondo rojo */
+}
+
+.button-logout:hover {
+    background-color: #c82333; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilo para el contenedor del formulario */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos horizontalmente */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Color de fondo gris claro */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    width: 300px; /* Ancho fijo para el contenedor del formulario */
+}
+
+/* Estilo para las etiquetas */
+.form-container label {
+    font-size: 16px; /* Tamaño de la fuente */
+    display: block; /* Hace que las etiquetas ocupen toda la fila */
+    margin-bottom: 5px; /* Espacio debajo de la etiqueta */
+}
+
+/* Estilo para los campos de entrada */
+.form-container input[type="text"],
+.form-container input[type="password"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Bordes redondeados en los campos */
+    font-size: 16px;
+    width: 100%; /* Ancho completo del contenedor */
+    box-sizing: border-box; /* Incluye el padding y border en el ancho total */
+    margin-bottom: 15px; /* Espaciado inferior entre los campos */
+}
+
+/* Estilo para los botones dentro del formulario */
+.form-container .button {
+    width: 100%; /* Ancho completo del contenedor */
+}
+
 /* Estilo para el espaciado entre los elementos */
-.signup-container div {
+.form-container div {
     margin-bottom: 15px; /* Espaciado inferior entre los elementos */
 }
 
 /* Estilo para el mensaje de confirmación */
-.signup-container .message {
+.form-container .message {
     font-size: 14px; /* Tamaño de la fuente */
     color: #666; /* Color del texto */
     text-align: center; /* Centra el texto */

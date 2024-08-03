@@ -1,18 +1,17 @@
-<p>profile works!</p>
+<div class="form-container">
 
+    <div>
+        <label for="txtCodiUser">Código de Usuario a buscar:</label>
+        <input type="text" id="txtCodiUser" name="txtCodiUser" maxlength="30" [(ngModel)]="txtCodiUser">
+    </div>
+    <div>
+        <label for="txtNombUser">Nombre:</label>
+        <input type="text" id="txtNombUser" maxlength="15" [(ngModel)]="txtNombUser">
+    </div>
+    <div>
+        <label for="txtPassUser">Password:</label>
+        <input type="text" id="txtPassUser" maxlength="15" [(ngModel)]="txtPassUser">
+    </div>
 
-
-<div>
-    <label>Código de Usuario:</label>
-    <input type="text" name="txtCodiUser" maxlength="30" [(ngModel)]="txtCodiUser">
+    <button type="button" class="button" routerLink="/home">Atrás</button>
 </div>
-<div>
-    <label>Nombre de Usuario:</label>
-    <input type="text" maxlength="15" [(ngModel)]="txtNombUser">
-</div>
-<div>
-    <label>Password:</label>
-    <input type="text" maxlength="15" [(ngModel)]="txtPassUser">
-</div>
-<br><br>
-<button type="button" routerLink="/home">Atrás</button>

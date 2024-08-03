@@ -1,24 +1,29 @@
-<p>accounts works!</p>
-<br>
-<input type="text" maxlength="15" [(ngModel)]="txtUser">
-<button type="button" (click)="fnGetAccountsComponent()">Get Accounts</button>
-<table class="accounts-table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Usuario</th>
-            <th>Número Cuenta</th>
-            <th>Nombre Cuenta</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let account of accounts">
-            <td>{{account.id}}</td>
-            <td>{{account.CodiUser}}</td>
-            <td>{{account.NumeCuen}}</td>
-            <td>{{account.NombCuen}}</td>
-        </tr>
-    </tbody>
-    <br><br>
-    <button type="button" routerLink="/home">Atrás</button>
-</table>
+<div class="form-container">
+    <div>
+        <input type="text" maxlength="15" [(ngModel)]="txtUser" placeholder="Enter User ID">
+    </div>
+    <div>
+        <button type="button" class="button" (click)="fnGetAccountsComponent()">Get Accounts</button>
+    </div>
+    
+    <table class="accounts-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Número Cuenta</th>
+                <th>Nombre Cuenta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let account of accounts">
+                <td>{{account.id}}</td>
+                <td>{{account.CodiUser}}</td>
+                <td>{{account.NumeCuen}}</td>
+                <td>{{account.NombCuen}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <button type="button" class="button" routerLink="/home">Atrás</button>
+</div>

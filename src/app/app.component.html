@@ -29,18 +29,20 @@
           <label>User:</label>
           <input type="text" maxlength="15" [(ngModel)]="lstrUser">
         </div>
+        <br>
         <div>
           <label>Password:</label>
           <input type="password" maxlength="15" [(ngModel)]="lstrPass">
         </div>
         <div>
           <button type="button" (click)="fnLogIN()" class="button">Login</button>
+          <button type="button" (click)="fnSignUP()" class="button">Sign Up</button>
         </div>
         <div>
           <br>
           <label>{{lstrMessag}}</label>
-          <br><br>
-          <button type="button" (click)="fnSignUP()" class="button">Sign Up</button>
+          <br>
+          
         </div>
       </div>
     </ng-template>
