@@ -24,7 +24,7 @@
     </table>
     <br>
     <div>
-        <p>Números de cuenta: <input type="text" [(ngModel)]="txtNumeCuen"></p>
+        <p>Cuenta a buscar: <input type="text" [(ngModel)]="txtNumeCuen"></p>
         <pre>{{accounts | mypipe: txtNumeCuen | json}}</pre>
     </div>
     <button type="button" class="button" routerLink="/home">Atrás</button>
