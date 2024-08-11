@@ -15,6 +15,7 @@ export class AccountsComponent implements OnInit {
 
   accounts: any[] = [];
   txtUser: string = '';
+  txtNumeCuen: string='';
 
   ngOnInit(): void {
     this.txtUser = this.service.txtUser; 

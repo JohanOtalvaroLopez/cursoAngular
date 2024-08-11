@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupModule } from './generales/signup/signup.module';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, SignupModule],

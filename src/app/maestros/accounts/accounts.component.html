@@ -3,7 +3,7 @@
         <input type="text" maxlength="15" [(ngModel)]="txtUser" placeholder="Enter User ID">
         <button type="button" class="button" (click)="fnGetAccountsComponent()">Get Accounts</button>
     </div>
-    
+
     <table class="accounts-table">
         <thead>
             <tr>
@@ -23,5 +23,9 @@
         </tbody>
     </table>
     <br>
+    <div>
+        <p>Números de cuenta: <input type="text" [(ngModel)]="txtNumeCuen"></p>
+        <pre>{{accounts | mypipe: txtNumeCuen | json}}</pre>
+    </div>
     <button type="button" class="button" routerLink="/home">Atrás</button>
 </div>
