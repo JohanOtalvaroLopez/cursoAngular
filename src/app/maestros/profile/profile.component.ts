@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   txtCodiUser: string = '';
   txtNombUser: string = '';
   txtPassUser: string = '';
+  lblMensajeProfile: string = '';
 
   ngOnInit(): void {
     const evKeyUp = fromEvent(document, 'keyup');
@@ -35,10 +36,17 @@ export class ProfileComponent implements OnInit, OnDestroy {
   }
 
   fnValiProfileComponent() {
+    this.txtNombUser = '';
+    this.txtPassUser = '';
     this.dataService.fnValiProfileDataServices(this.txtCodiUser).subscribe({
       next: (res) => {
-        this.txtNombUser = res[0].NombUsua;
-        this.txtPassUser = res[0].PassUser;
+        if (res[0].NombUsua == '') {
+          this.lblMensajeProfile = 'Usuario no encontrado';
+        } else {
+          this.lblMensajeProfile = '';
+          this.txtNombUser = res[0].NombUsua;
+          this.txtPassUser = res[0].PassUser;
+        }
       },
     });
   }

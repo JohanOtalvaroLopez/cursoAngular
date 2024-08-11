@@ -1,1 +1,28 @@
 <p>home works!</p>
+
+<p>Hoy es: {{lblFecha | date}}</p>
+<p>Hoy es: {{lblFecha | date:"dd/MM/yy"}}</p>
+<p>Hoy es: {{lblFecha | date:"dd/MMM/yyyy"}}</p>
+
+<p>Hoy es (json): {{lblFecha | json}}</p>
+
+<p>Valor: {{lblValor}}</p>
+<p>Valor moneda: {{lblValor | currency}}</p>
+
+<p>Valor: {{lblPorcen}}</p>
+<p>Valor porcentaje: {{lblPorcen | percent}}</p>
+
+<p>Texto: {{lblTexto}}</p>
+<p>Texto minúsculas: {{lblTexto | lowercase}}</p>
+<p>Texto mayúsculas: {{lblTexto | uppercase}}</p>
+
+
+<ng-template #myTemplate>
+    <div>
+        <p>Esta es mi plantilla</p>
+    </div>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="myTemplate"></ng-container>
+<ng-container *ngTemplateOutlet="myTemplate"></ng-container>
+<ng-container *ngTemplateOutlet="myTemplate"></ng-container>
