@@ -15,3 +15,8 @@
     <div class="message"><label>{{lblMensajeProfile}}</label></div>
     <button type="button" class="button" routerLink="/home">Atrás</button>
 </div>
+<P [ngStyle]="{'background': txtColor == 'white' ? 'white': 'blue'}">Etiquete de atributo</P>
+<button type="button" (click)="fnFondoBlanco()">Fondo blanco</button>
+<button type="button" (click)="fnFondoAzul()">Fondo azul</button>
+
+<p appMydirective>Mi directiva</p>

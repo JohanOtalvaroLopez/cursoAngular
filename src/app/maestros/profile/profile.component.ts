@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   txtNombUser: string = '';
   txtPassUser: string = '';
   lblMensajeProfile: string = '';
+  txtColor: string = 'white';
 
   ngOnInit(): void {
     const evKeyUp = fromEvent(document, 'keyup');
@@ -49,5 +50,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
         }
       },
     });
+  }
+  fnFondoBlanco() {
+    this.txtColor = 'white';
+  }
+  fnFondoAzul() {
+    this.txtColor = 'blue';
   }
 }
