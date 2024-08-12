@@ -87,4 +87,31 @@ export class DataService {
         })
       );
   }
+
+  fnSaveTranDataServices(
+    Type: string,
+    NumeCuen: string,
+    Amount: string,
+    Categoria: string,
+    Descripcion: string,
+    Estado: string
+  ): Observable<any> {
+    let TransactionInfo: any[] = [];
+    TransactionInfo.push({
+      Type: Type,
+      NumeCuen: NumeCuen,
+      Amount: Amount,
+      Categoria: Categoria,
+      Descripcion: Descripcion,
+      Estado: Estado,
+    });
+    return this.http
+      .post(this.apiUrl + '/SaveTran', TransactionInfo, httpOptions)
+      .pipe(
+        tap((res: any) => {
+          console.log('dataservices_fnSaveTranDataServices:', res);
+          return res;
+        })
+      );
+  }
 }

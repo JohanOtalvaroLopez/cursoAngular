@@ -1,1 +1,67 @@
-<p>transactions works!</p>
+<div class="">
+
+    <div class="">
+        <span class="">Tipo de Movimiento: </span>
+        <select id="Type" name="Type" class="form-select" [(ngModel)]="txtType">
+            <option value="Deposito">Depósito</option>
+            <option value="Retiro">Retiro</option>
+        </select>
+    </div>
+    <div class="">
+        <span class="">Número de Cuenta: </span>
+        <input type="number" placeholder="Número de Cuenta" name="Tipo" class="" id="" [(ngModel)]="txtNumeCuen">
+    </div>
+
+    <div class="">
+        <span class="">Monto de la Transacción: </span>
+        <input type="number" placeholder="Monto de la Transacción" name="Monto" class="" id="" [(ngModel)]="txtAmount">
+    </div>
+
+    <div class="">
+        <span class="">Categoría: </span>
+        <input type="text" placeholder="Categoría" name="Categoria" class="" id="" [(ngModel)]="txtCategoria">
+    </div>
+
+    <div class="">
+        <span class="">Descripción: </span>
+        <input type="text" placeholder="Descripción" name="Descripcion" class="" id="" [(ngModel)]="txtDescripcion">
+    </div>
+
+    <div class="">
+        <span class="">Estado: </span>
+        <select id="Type" name="Type" class="form-select" [(ngModel)]="txtEstado">
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+        </select>
+    </div>
+    <br>
+    <div class="">
+        <button type="button" (click)="fnSaveTranComponent()">Almacenar</button>
+    </div>
+    <table class="transacs-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tipo</th>
+                <th>Fecha</th>
+                <th>Monto</th>
+                <th>Categoría</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+                <th>Saldo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transac of transacs">
+                <td>{{transac.id}}</td>
+                <td>{{transac.Type}}</td>
+                <td>{{transac.Date| date:"dd/MMM/yyyy"}}</td>
+                <td>{{transac.Amount | currency}}</td>
+                <td>{{transac.Category}}</td>
+                <td>{{transac.Description}}</td>
+                <td>{{transac.Status}}</td>
+                <td>{{transac.Balance| currency}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
