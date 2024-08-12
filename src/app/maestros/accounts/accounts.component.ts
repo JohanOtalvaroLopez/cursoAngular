@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { ServiceService } from '../../services/service.service';
+import { Subscribable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-accounts',
@@ -16,11 +17,12 @@ export class AccountsComponent implements OnInit {
   accounts: any[] = [];
   txtUser: string = '';
   txtNumeCuen: string = '';
-  lblMensajeAccount: string = '';
-
   //txtCodigoUsuario: string = '';
   txtNombreCuenta: string = '';
   txtNumeroCuenta: string = '';
+  lblMensajeAccount: string = '';
+
+  public Subscription: Subscription = new Subscription();
 
   ngOnInit(): void {
     this.txtUser = this.service.txtUser;
@@ -40,29 +42,47 @@ export class AccountsComponent implements OnInit {
 
   fnSaveAccountComponent() {
     this.lblMensajeAccount = '';
-
     if (!this.fnValidaCampos()) {
       this.lblMensajeAccount =
         '*** Debes ingresar los campos obligatorios *** ';
     } else {
-      this.dataService
-        .fnSaveAccountDataServices(
-          this.service.txtUser,
-          this.txtNombreCuenta,
-          this.txtNumeroCuenta
-        )
-        .subscribe({
-          next: (res) => {
-            if (res[0].Status == 'OK') {
-              this.lblMensajeAccount =
-                '¡¡¡¡ Registro Almacenado Exitosamente !!!';
-              this.fnGetAccountsComponent();
-            } else {
-              this.lblMensajeAccount = res[0].Error;
-            }
-          },
-        });
+      //Ventana de confirmación
+      let resul = confirm('¿Está seguro de almacenar el registro?');
+      if (resul == true) {
+        this.service.fnSetResObserver('SI');
+        console.log('fnSetResObserver SI');
+      } else {
+        this.service.fnSetResObserver('NO');
+        console.log('fnSetResObserver NO');
+      }
+      //Realizo la subscripción
+      this.Subscription = this.service.ResObserver$.subscribe((res: any) => {
+        if (res == 'SI') {
+          this.fnObsSaveAccount();
+        }
+        this.Subscription.unsubscribe(); // Cancelo la subscripción
+      });
     }
+  }
+
+  fnObsSaveAccount() {
+    this.dataService
+      .fnSaveAccountDataServices(
+        this.service.txtUser,
+        this.txtNombreCuenta,
+        this.txtNumeroCuenta
+      )
+      .subscribe({
+        next: (res) => {
+          if (res[0].Status == 'OK') {
+            this.lblMensajeAccount =
+              '¡¡¡¡ Registro Almacenado Exitosamente !!!';
+            this.fnGetAccountsComponent();
+          } else {
+            this.lblMensajeAccount = res[0].Error;
+          }
+        },
+      });
   }
 
   fnValidaCampos() {

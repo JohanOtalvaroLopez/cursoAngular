@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       next: (x) => {
         var target = x.target as HTMLInputElement;
         if (target.name == 'txtCodiUser') {
-          console.log('Pasé por acá --> ', this.txtCodiUser);
+          console.log('Ingresado --> ', this.txtCodiUser);
           this.fnValiProfileComponent();
         }
       },
