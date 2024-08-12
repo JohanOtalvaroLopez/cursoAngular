@@ -15,5 +15,6 @@ export class ServiceService {
 
   fnSetResObserver(pvstrObserver: any) {
     this.ResSubjet.next(pvstrObserver);
+    console.log('dataservices_fnSetResObserver',pvstrObserver)
   }
 }

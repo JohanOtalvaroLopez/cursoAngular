@@ -28,9 +28,11 @@ export class SignupComponent {
       .subscribe({
         next: (res) => {
           if (res[0].Status == 'OK') {
-            this.lblMensajeSignUp = '¡Registro alamacenado exitosamente!';
+            alert('¡Registro alamacenado exitosamente!');
+            //this.lblMensajeSignUp = '¡Registro alamacenado exitosamente!';
           } else {
-            this.lblMensajeSignUp = 'Error --> ' + res[0].Error;
+            alert('Error --> ' + res[0].Error);
+            //this.lblMensajeSignUp = 'Error --> ' + res[0].Error;
           }
         },
       });

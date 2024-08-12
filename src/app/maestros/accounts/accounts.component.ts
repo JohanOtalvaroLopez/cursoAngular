@@ -43,17 +43,16 @@ export class AccountsComponent implements OnInit {
   fnSaveAccountComponent() {
     this.lblMensajeAccount = '';
     if (!this.fnValidaCampos()) {
-      this.lblMensajeAccount =
-        '*** Debes ingresar los campos obligatorios *** ';
+      alert('*** Debes ingresar los campos obligatorios *** ')
+      //this.lblMensajeAccount =
+      //  '*** Debes ingresar los campos obligatorios *** ';
     } else {
       //Ventana de confirmación
       let resul = confirm('¿Está seguro de almacenar el registro?');
       if (resul == true) {
         this.service.fnSetResObserver('SI');
-        console.log('fnSetResObserver SI');
       } else {
         this.service.fnSetResObserver('NO');
-        console.log('fnSetResObserver NO');
       }
       //Realizo la subscripción
       this.Subscription = this.service.ResObserver$.subscribe((res: any) => {
@@ -75,11 +74,13 @@ export class AccountsComponent implements OnInit {
       .subscribe({
         next: (res) => {
           if (res[0].Status == 'OK') {
-            this.lblMensajeAccount =
-              '¡¡¡¡ Registro Almacenado Exitosamente !!!';
+            alert('¡¡¡¡ Registro Almacenado Exitosamente !!!')
+            //this.lblMensajeAccount =
+            //  '¡¡¡¡ Registro Almacenado Exitosamente !!!';
             this.fnGetAccountsComponent();
           } else {
-            this.lblMensajeAccount = res[0].Error;
+            alert(res[0].Error);
+            //this.lblMensajeAccount = res[0].Error;
           }
         },
       });
