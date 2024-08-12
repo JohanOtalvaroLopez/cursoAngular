@@ -66,4 +66,25 @@ export class DataService {
         })
       );
   }
+
+  fnSaveAccountDataServices(
+    CodiUser: string,
+    NombCuen: string,
+    NumeCuen: string
+  ): Observable<any> {
+    let UserInfo: any[] = [];
+    UserInfo.push({
+      CodiUser: CodiUser,
+      NombCuen: NombCuen,
+      NumeCuen: NumeCuen,
+    });
+    return this.http
+      .post(this.apiUrl + '/SaveAccount', UserInfo, httpOptions)
+      .pipe(
+        tap((res: any) => {
+          console.log('dataservices_fnSaveAccountDataServices:', res);
+          return res;
+        })
+      );
+  }
 }

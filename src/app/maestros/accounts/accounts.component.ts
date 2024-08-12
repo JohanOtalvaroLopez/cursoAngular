@@ -15,18 +15,61 @@ export class AccountsComponent implements OnInit {
 
   accounts: any[] = [];
   txtUser: string = '';
-  txtNumeCuen: string='';
+  txtNumeCuen: string = '';
+  lblMensajeAccount: string = '';
+
+  //txtCodigoUsuario: string = '';
+  txtNombreCuenta: string = '';
+  txtNumeroCuenta: string = '';
 
   ngOnInit(): void {
-    this.txtUser = this.service.txtUser; 
+    this.txtUser = this.service.txtUser;
     this.fnGetAccountsComponent();
   }
 
   fnGetAccountsComponent() {
-    this.dataService.fnGetAccountsDataServices(this.txtUser).subscribe({ // --> Solo busca con el INPUT pero no con el del LOGIN(Robin)
+    this.txtNombreCuenta = '';
+    this.txtNumeroCuenta = '';
+    this.service.txtUser = this.txtUser;
+    this.dataService.fnGetAccountsDataServices(this.txtUser).subscribe({
       next: (res) => {
         this.accounts = res;
       },
     });
+  }
+
+  fnSaveAccountComponent() {
+    this.lblMensajeAccount = '';
+
+    if (!this.fnValidaCampos()) {
+      this.lblMensajeAccount =
+        '*** Debes ingresar los campos obligatorios *** ';
+    } else {
+      this.dataService
+        .fnSaveAccountDataServices(
+          this.service.txtUser,
+          this.txtNombreCuenta,
+          this.txtNumeroCuenta
+        )
+        .subscribe({
+          next: (res) => {
+            if (res[0].Status == 'OK') {
+              this.lblMensajeAccount =
+                '¡¡¡¡ Registro Almacenado Exitosamente !!!';
+              this.fnGetAccountsComponent();
+            } else {
+              this.lblMensajeAccount = res[0].Error;
+            }
+          },
+        });
+    }
+  }
+
+  fnValidaCampos() {
+    if (this.txtNumeroCuenta == '' || this.txtNombreCuenta == '') {
+      return false;
+    } else {
+      return true;
+    }
   }
 }
