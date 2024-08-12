@@ -35,6 +35,9 @@ export class SignupComponent {
             //this.lblMensajeSignUp = 'Error --> ' + res[0].Error;
           }
         },
+        error: (err) => {
+          console.log('err', err);
+        },
       });
   }
 }

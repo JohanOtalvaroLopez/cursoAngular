@@ -15,11 +15,24 @@ export class AppComponent {
   lstrPass: string = '1234';
   lstrMessag: string = '';
 
-  constructor(private apiService: DataService, public service: ServiceService, private router: Router){}
+  constructor(
+    private apiService: DataService,
+    public service: ServiceService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.lbolUserLogu = false;
+  }
+
+  ngDoCheck(): void {
+    console.log('DoCheck');
+  }
 
   fnLogIN() {
     this.apiService.fnValiUser(this.lstrUser, this.lstrPass).subscribe({
       next: (res) => {
+        console.log('Next');
         if (res[0].Status == 'OK') {
           this.lbolUserLogu = true;
           this.lstrMessag = '';
@@ -31,15 +44,21 @@ export class AppComponent {
           window.alert(res[0].NombUsua);
         }
       },
+      error: (err) => {
+        console.log('err', err);
+      },
+      complete: () => {
+        console.log('Completed');
+      },
     });
   }
 
   fnLogOUT() {
     this.lbolUserLogu = false;
-    //window.alert('*** Gracias por utilizar nuetros servicios financieros ***');
+    alert('*** Gracias por utilizar nuetros servicios financieros ***');
   }
 
-  fnSignUP(){
+  fnSignUP() {
     this.service.gbolSignUp = true;
   }
 }

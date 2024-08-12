@@ -4,19 +4,25 @@ import {
   provideClientHydration,
 } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withFetch,
+  withInterceptors,
+} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupModule } from './generales/signup/signup.module';
-//import { MydirectiveDirective } from './directives/mydirective.directive';
-
+import { loggingInterceptor } from './interceptors/logging.interceptor';
+import { authInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
-  declarations: [AppComponent, //MydirectiveDirective
-    ],
+  declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, SignupModule],
-  providers: [provideClientHydration(), provideHttpClient(withFetch())],
+  providers: [
+    provideClientHydration(),
+    provideHttpClient(withInterceptors([loggingInterceptor, authInterceptor])),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
