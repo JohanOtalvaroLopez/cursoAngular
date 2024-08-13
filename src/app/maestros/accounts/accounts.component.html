@@ -3,7 +3,7 @@
 
         <div>
             <input type="text" maxlength="15" [(ngModel)]="txtUser" placeholder="Enter User ID">
-            <button type="button" class="button" (click)="fnGetAccountsComponent()">Get Accounts</button>
+            <button type="button" class="button" (click)="fnGetAccountsComponent()">Listar Cuentas</button>
         </div>
         <p>Número de Cuenta: <input type="text" maxlength="15" [(ngModel)]="txtNumeroCuenta"
                 placeholder="Enter Account Number"></p>
@@ -11,7 +11,7 @@
         <p>Nombre de la Cuenta: <input type="text" maxlength="30" [(ngModel)]="txtNombreCuenta"
                 placeholder="Enter Account Name"></p>
 
-        <button type="button" class="button" (click)="fnSaveAccountComponent()">Save Account</button>
+        <button type="button" class="button" (click)="fnSaveAccountComponent()">Almacenar Cuenta</button>
     </div>
     <br>
     <div class="message"><label>{{lblMensajeAccount}}</label></div>

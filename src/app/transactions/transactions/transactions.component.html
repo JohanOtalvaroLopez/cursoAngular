@@ -1,42 +1,42 @@
 <div class="">
 
-    <div class="">
-        <span class="">Tipo de Movimiento: </span>
+    <div class="input-group mb-3">
+        <span class="input-group mb-3">Tipo de Movimiento: </span>
         <select id="Type" name="Type" class="form-select" [(ngModel)]="txtType">
             <option value="Deposito">Depósito</option>
             <option value="Retiro">Retiro</option>
         </select>
     </div>
-    <div class="">
-        <span class="">Número de Cuenta: </span>
+    <div class="input-group mb-3">
+        <span class="input-group mb-3">Número de Cuenta: </span>
         <input type="number" placeholder="Número de Cuenta" name="Tipo" class="" id="" [(ngModel)]="txtNumeCuen">
     </div>
 
-    <div class="">
-        <span class="">Monto de la Transacción: </span>
+    <div class="input-group mb-3">
+        <span class="input-group mb-3">Monto de la Transacción: </span>
         <input type="number" placeholder="Monto de la Transacción" name="Monto" class="" id="" [(ngModel)]="txtAmount">
     </div>
 
-    <div class="">
-        <span class="">Categoría: </span>
+    <div class="input-group mb-3">
+        <span class="input-group mb-3">Categoría: </span>
         <input type="text" placeholder="Categoría" name="Categoria" class="" id="" [(ngModel)]="txtCategoria">
     </div>
 
-    <div class="">
-        <span class="">Descripción: </span>
+    <div class="input-group mb-3">
+        <span class="input-group mb-3">Descripción: </span>
         <input type="text" placeholder="Descripción" name="Descripcion" class="" id="" [(ngModel)]="txtDescripcion">
     </div>
 
-    <div class="">
-        <span class="">Estado: </span>
+    <div class="input-group mb-3">
+        <span class="input-group mb-3">Estado: </span>
         <select id="Type" name="Type" class="form-select" [(ngModel)]="txtEstado">
             <option value="Activo">Activo</option>
             <option value="Inactivo">Inactivo</option>
         </select>
     </div>
     <br>
-    <div class="">
-        <button type="button" (click)="fnSaveTranComponent()">Almacenar</button>
+    <div class="input-group mb-3">
+        <button type="button" (click)="fnSaveTranComponent()">Almacenar Transacción</button>
     </div>
     <table class="transacs-table">
         <thead>

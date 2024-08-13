@@ -26,13 +26,13 @@ export class AppComponent {
   }
 
   ngDoCheck(): void {
-    console.log('DoCheck');
+    //console.log('DoCheck');
   }
 
   fnLogIN() {
     this.apiService.fnValiUser(this.lstrUser, this.lstrPass).subscribe({
       next: (res) => {
-        console.log('Next');
+        //console.log('Next');
         if (res[0].Status == 'OK') {
           this.lbolUserLogu = true;
           this.lstrMessag = '';
@@ -48,7 +48,7 @@ export class AppComponent {
         console.log('err', err);
       },
       complete: () => {
-        console.log('Completed');
+        //console.log('Completed');
       },
     });
   }
