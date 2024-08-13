@@ -44,8 +44,6 @@ export class AccountsComponent implements OnInit {
     this.lblMensajeAccount = '';
     if (!this.fnValidaCampos()) {
       alert('*** Debes ingresar los campos obligatorios *** ')
-      //this.lblMensajeAccount =
-      //  '*** Debes ingresar los campos obligatorios *** ';
     } else {
       //Ventana de confirmación
       let resul = confirm('¿Está seguro de almacenar el registro?');
@@ -75,12 +73,9 @@ export class AccountsComponent implements OnInit {
         next: (res) => {
           if (res[0].Status == 'OK') {
             alert('¡¡¡¡ Registro Almacenado Exitosamente !!!')
-            //this.lblMensajeAccount =
-            //  '¡¡¡¡ Registro Almacenado Exitosamente !!!';
             this.fnGetAccountsComponent();
           } else {
             alert(res[0].Error);
-            //this.lblMensajeAccount = res[0].Error;
           }
         },
       });

@@ -27,32 +27,29 @@ export class TransactionsComponent {
   public Subscription: Subscription = new Subscription();
 
   ngOnInit() {}
+
   fnSaveTranComponent() {
     this.cont = this.cont + 1;
     console.log('Contador: ', this.cont);
+
     if (!this.fnValidaCampos()) {
       alert('*** Debes ingresar los campos obligatorios *** ');
     } else {
+      this.Subscription = this.service.ResObserver$.subscribe((res: any) => {
+        this.Subscription.unsubscribe(); // Cancelo la subscripción
+        if (res == 'SI') {
+          console.log('res == SI');
+          this.fnObsSaveTran();
+        }
+      });
       //Ventana de confirmación
       let result = confirm('¿Está seguro de almacenar el registro?');
       if (result == true) {
         this.service.fnSetResObserver('SI');
-        console.log('fnSetResObserver SI');
       } else {
         this.service.fnSetResObserver('NO');
-        console.log('fnSetResObserver NO');
       }
     }
-    //Realizo la subscripción
-    this.Subscription = this.service.ResObserver$.subscribe((res: any) => {
-      this.Subscription.unsubscribe(); // Cancelo la subscripción
-      //console.log('pasé por el final...');
-      console.log('pasé por la subscripción...');
-      if (res == 'SI') {
-        console.log('res == SI');
-        this.fnObsSaveTran();
-      }
-    });
   }
 
   fnObsSaveTran() {
@@ -76,7 +73,6 @@ export class TransactionsComponent {
           }
           alert('¡¡¡¡ Registro Almacenado Exitosamente !!!');
           this.transacs = this.fnCalcularBalance(res);
-          //console.log('fnSaveTranComponent --> ', res);
           this.fnLimpiarCampos();
         },
       });
