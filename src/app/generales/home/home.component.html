@@ -1,33 +1,53 @@
-<p>home works!</p>
-
-<p>Hoy es: {{lblFecha | date}}</p>
-<p>Hoy es: {{lblFecha | date:"dd/MM/yy"}}</p>
-<p>Hoy es: {{lblFecha | date:"dd/MMM/yyyy"}}</p>
-
-<p>Hoy es (json): {{lblFecha | json}}</p>
-
-<p>Valor: {{lblValor}}</p>
-<p>Valor moneda: {{lblValor | currency}}</p>
-
-<p>Valor: {{lblPorcen}}</p>
-<p>Valor porcentaje: {{lblPorcen | percent}}</p>
-
-<p>Texto: {{lblTexto}}</p>
-<p>Texto minúsculas: {{lblTexto | lowercase}}</p>
-<p>Texto mayúsculas: {{lblTexto | uppercase}}</p>
-
-
-<ng-template #myTemplate>
-    <div>
-        <p>Esta es mi plantilla</p>
-    </div>
-</ng-template>
-
-<ng-container *ngTemplateOutlet="myTemplate"></ng-container>
-<ng-container *ngTemplateOutlet="myTemplate"></ng-container>
-<ng-container *ngTemplateOutlet="myTemplate"></ng-container>
-
 <div>
-    <button type="button" (click)="fnActiveObserver()">Activar Observable</button>
-    <button type="button" (click)="fnTestObserver()">Probar Observable</button>
+    <mat-tab-group animationDuration="0ms">
+        <mat-tab label="Pipes">
+            <ng-template matTabContent>
+                <div>
+                    <p>Hoy es: {{lblFecha | date}}</p>
+                    <p>Hoy es: {{lblFecha | date:"dd/MM/yy"}}</p>
+                    <p>Hoy es: {{lblFecha | date:"dd/MMM/yyyy"}}</p>
+                    <br>
+                    <p>Hoy es (json): {{lblFecha | json}}</p>
+                    <br>
+                    <p>Valor: {{lblValor}}</p>
+                    <p>Valor moneda: {{lblValor | currency}}</p>
+                    <br>
+                    <p>Valor: {{lblPorcen}}</p>
+                    <p>Valor porcentaje: {{lblPorcen | percent}}</p>
+                    <br>
+                    <p>Texto: {{lblTexto}}</p>
+                    <p>Texto minúsculas: {{lblTexto | lowercase}}</p>
+                    <p>Texto mayúsculas: {{lblTexto | uppercase}}</p>
+                </div>
+            </ng-template>
+        </mat-tab>
+
+
+
+        <mat-tab label="ng-template">
+            <div>
+                <ng-template #myTemplate>
+                    <div>
+                        <p>Esta es mi plantilla</p>
+                    </div>
+                </ng-template>
+
+                <ng-container *ngTemplateOutlet="myTemplate"></ng-container>
+                <ng-container *ngTemplateOutlet="myTemplate"></ng-container>
+                <ng-container *ngTemplateOutlet="myTemplate"></ng-container>
+            </div>
+        </mat-tab>
+
+        <mat-tab label="Observable">
+            <div>
+                <button type="button" (click)="fnActiveObserver()">Activar Observable</button>
+                <button type="button" (click)="fnTestObserver()">Probar Observable</button>
+            </div>
+        </mat-tab>
+        <mat-tab label="New tab">
+            <div>
+                <p>Nuevo tab ...</p>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
 </div>

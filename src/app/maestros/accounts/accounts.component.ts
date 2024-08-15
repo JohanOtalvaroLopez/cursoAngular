@@ -45,6 +45,12 @@ export class AccountsComponent implements OnInit {
     if (!this.fnValidaCampos()) {
       alert('*** Debes ingresar los campos obligatorios *** ')
     } else {
+      this.Subscription = this.service.ResObserver$.subscribe((res: any) => {
+        if (res == 'SI') {
+          this.fnObsSaveAccount();
+        }
+        this.Subscription.unsubscribe(); // Cancelo la subscripción
+      });
       //Ventana de confirmación
       let resul = confirm('¿Está seguro de almacenar el registro?');
       if (resul == true) {
@@ -53,12 +59,7 @@ export class AccountsComponent implements OnInit {
         this.service.fnSetResObserver('NO');
       }
       //Realizo la subscripción
-      this.Subscription = this.service.ResObserver$.subscribe((res: any) => {
-        if (res == 'SI') {
-          this.fnObsSaveAccount();
-        }
-        this.Subscription.unsubscribe(); // Cancelo la subscripción
-      });
+      
     }
   }
 

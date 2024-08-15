@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { TransactionsRoutingModule } from './transactions-routing.module';
 import { TransactionsComponent } from './transactions.component';
 import { FormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTabGroup } from '@angular/material/tabs';
 
 
 
@@ -14,7 +16,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     TransactionsRoutingModule,
-    FormsModule
+    FormsModule,
+    MatTabsModule,
+    MatTabGroup
   ]
 })
 export class TransactionsModule { }

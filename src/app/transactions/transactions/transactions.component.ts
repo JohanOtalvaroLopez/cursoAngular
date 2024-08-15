@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { ServiceService } from '../../services/service.service';
 import { Subscribable, Subscription } from 'rxjs';
+import { MatTabGroup } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-transactions',
@@ -9,6 +10,7 @@ import { Subscribable, Subscription } from 'rxjs';
   styleUrl: './transactions.component.scss',
 })
 export class TransactionsComponent {
+  //@ViewChild('tabGroup', { static: false }) tabGroup!: MatTabGroup;
   constructor(
     private dataService: DataService,
     private service: ServiceService
@@ -27,11 +29,8 @@ export class TransactionsComponent {
   public Subscription: Subscription = new Subscription();
 
   ngOnInit() {}
-
+  ngAfterViewInit() {}
   fnSaveTranComponent() {
-    this.cont = this.cont + 1;
-    console.log('Contador: ', this.cont);
-
     if (!this.fnValidaCampos()) {
       alert('*** Debes ingresar los campos obligatorios *** ');
     } else {
@@ -74,6 +73,7 @@ export class TransactionsComponent {
           alert('¡¡¡¡ Registro Almacenado Exitosamente !!!');
           this.transacs = this.fnCalcularBalance(res);
           this.fnLimpiarCampos();
+          //this.tabGroup.selectedIndex = 1;
         },
       });
   }

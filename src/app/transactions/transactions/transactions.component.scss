@@ -1,0 +1,94 @@
+/* Estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+mat-tab-group {
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 20px;
+}
+
+mat-tab {
+    font-weight: bold;
+    color: #00796b;
+}
+
+mat-tab-group[ng-reflect-selected-index="0"] mat-tab:nth-child(1) {
+    color: #004d40;
+}
+
+mat-tab-group[ng-reflect-selected-index="1"] mat-tab:nth-child(2) {
+    color: #004d40;
+}
+
+/* Input y select */
+.input-group span {
+    display: inline-block;
+    width: 180px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input,
+.input-group select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 12px;
+    width: 100%;
+    max-width: 300px;
+    color: #333;
+    background-color: #fff;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+/* Botón */
+button {
+    background-color: #007bff;  /* Cambiado a un azul más intenso */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;  /* Azul más oscuro al pasar el cursor */
+}
+
+/* Tabla */
+.transacs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.transacs-table th,
+.transacs-table td {
+    border: 1px solid #e0e0e0;
+    text-align: left;
+    padding: 8px;
+    color: #555;
+}
+
+.transacs-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.transacs-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.transacs-table tbody tr:hover {
+    background-color: #e0f7fa;
+}
+

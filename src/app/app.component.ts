@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DataService } from './services/data.service';
 import { ServiceService } from './services/service.service';
 import { Router } from '@angular/router';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'MY APP BANK';
+  title = '$$$ My App Bank $$$';
   lbolUserLogu: boolean = false;
   lstrUser: string = 'Robin';
   lstrPass: string = '1234';
