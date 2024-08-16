@@ -10,7 +10,7 @@ import { MatTabGroup } from '@angular/material/tabs';
   styleUrl: './transactions.component.scss',
 })
 export class TransactionsComponent {
-  //@ViewChild('tabGroup', { static: false }) tabGroup!: MatTabGroup;
+  @ViewChild('tabGroup', { static: false }) tabGroup!: MatTabGroup;
   constructor(
     private dataService: DataService,
     private service: ServiceService
@@ -73,7 +73,7 @@ export class TransactionsComponent {
           alert('¡¡¡¡ Registro Almacenado Exitosamente !!!');
           this.transacs = this.fnCalcularBalance(res);
           this.fnLimpiarCampos();
-          //this.tabGroup.selectedIndex = 1;
+          this.tabGroup.selectedIndex = 1;
         },
       });
   }
